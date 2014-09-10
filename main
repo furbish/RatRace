@@ -1,0 +1,64 @@
+package InitialClasses;
+//package RatRace;
+import java.util.Scanner;
+
+public class Main {
+	public static void main (String[] args) {
+		Scanner scan = new Scanner(System.in);
+		@SuppressWarnings("unused")
+		Wallet wallet = new Wallet(20);	
+		UpgradeCenter upgradeCenter = new UpgradeCenter();
+		PlayerRacer player1 = new PlayerRacer("ATT", 1, 1, 1);
+		CompRacer comp1 = new CompRacer("ATT", 1, 1, 1);
+		@SuppressWarnings("unused")
+		RaceTrack race = new RaceTrack(10);	
+		
+		
+		while (Wallet.checkWealth()) {	
+		System.out.print("Money Remaining: $" + Wallet.money + "\n");
+		/* This is not how we want the program run, what we want is the main to 
+		 * eventually have a menu and options, so when you design UserControl
+		 * and a main keep that in mind.
+		 */
+		System.out.println("Player Profile: " + "\t" + player1.toString() + "\n");
+		System.out.println("Race? (y/n)");
+		String response = scan.next();
+		if (response.equals("y")) {
+			System.out.println("How much we betting? (whole numbers)");
+			GamblingCenter.bet = scan.nextInt();
+			for (RaceTrack.laps = 1 ; RaceTrack.laps < 11; RaceTrack.laps++)	{//runs race...  GIVE ME TO RACEGOD!!!
+			RaceTrack.runRace(player1, comp1);
+			GamblingCenter.conductPayout();
+			}
+		RaceTrack.resetUserScore();
+		RaceTrack.resetcompScore();
+		System.out.println("Upgrade? (y/n)");
+		/* In the real code this type of process will not be in the main. The main will
+		 * be used to instantiate objects and then run until the game is closed. In 
+		 * reality this process should be handled by your UserControl object's methods 
+		 * called by the main for the sake of clarity, and ease of access. That class
+		 * and the remaining you should try to make.
+		 * */
+		String response2 = scan.next();
+		if (response2.equals("y")) {
+			System.out.println("How much? (whole numbers)");
+			int investAmount = scan.nextInt();
+			upgradeCenter.upgradeAttack(investAmount);	//assings upgrade variable a value
+			player1.upgradeAttack(upgradeCenter.upgrade);	//acutally adjusts player stats
+			}
+		/* I only put in this section for testing purposes, like other functions of the
+		 * game it will need to be handeled by another class, though I hope through reading
+		 * this you are begining to understand how that should look. For this reason I only
+		 * made a method to upgrade attack. I trust however you decied to set this up will 
+		 * eventually contain a switch case or string response, alo bare in mind you just 
+		 * need the bare minimum as eventually a finger will decide aciton for you 
+		 */
+		}
+	}
+		scan.close();}}
+
+
+
+
+
+
