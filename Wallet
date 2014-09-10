@@ -1,0 +1,25 @@
+package InitialClasses;
+
+/**
+ * @author Jeff Furbish, September 3rd, 2014
+
+ */
+public class Wallet {
+	public static int money;
+	public static final int moneyMin =0;
+	
+	 
+	public Wallet(int money) {
+		Wallet.money=money;
+	}
+	public static boolean checkWealth() {
+		if (money > moneyMin) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+	public static void spendMoney(int x) {
+		money-=x;
+	}
+}
