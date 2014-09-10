@@ -1,0 +1,46 @@
+
+package InitialClasses;
+
+/** 
+ * @author Jeff Furbish, September 3rd, 2014
+ * This class wil manage upgrades, as of now it should be interacting with the
+ * wallet and the player racer classes.
+ */
+public class UpgradeCenter {
+	public static final int attackCost = 1;
+	public static final int accelerationCost = 1;
+	public static final int topSpeedCost = 1;
+	public int upgrade;
+	public static String upgradeType;
+	public static int investAmount;
+
+	public UpgradeCenter() {
+	}
+	/*The methods that follow call the wallet to check that there is indeed enough money to
+	 * make the pruchase, then based on whether or not that is true, assigns 
+	 * the instance variable 'upgrade' a value. This upgrade value will be called 
+	 * in the main by the PlayerRacer.
+	 */
+
+	public void upgradeAttack(int x) {
+		if ((Wallet.money-x*attackCost)>Wallet.moneyMin) {
+			int cost = x*attackCost;
+				Wallet.spendMoney(cost);
+				upgrade=x;
+			} else { upgrade =0; }
+		}
+	public void upgradeAcceleration(int x) {
+		if ((Wallet.money-x*accelerationCost)>Wallet.moneyMin) {
+			int cost = x*accelerationCost;
+				Wallet.spendMoney(cost);
+				upgrade=x;
+			} else { upgrade =0; }
+		}
+	public void upgradeTopSpeed(int x) {
+		if ((Wallet.money-x*topSpeedCost)>Wallet.moneyMin) {
+			int cost = x*topSpeedCost;
+				Wallet.spendMoney(cost);
+				upgrade=x;
+			} else { upgrade =0; }
+		}
+}
