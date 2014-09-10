@@ -1,0 +1,44 @@
+/**
+ * 
+ */
+package InitialClasses;
+
+//package InitialClasses;
+/**
+* @author Eric Terzer, Septemeber 9th, 2014
+* CompRacer extends racer, it will only have a level and a style;
+*
+*/
+public class CompRacer extends Racer {
+	public int level = 1;
+	/**
+	 * @param style
+	 * @param attack
+	 * @param topSpeed
+	 * @param acceleration
+	 */
+	public CompRacer(String style, int attack, int topSpeed, int acceleration) {
+		super(style, attack, topSpeed, acceleration);
+	}
+	public void updateStyle(String sty) {
+		style=sty;
+	}
+	public void upgradeAttack(int x) {
+		attack += x;
+	}
+	public void upgradeAcceleration(int x) {
+		acceleration += x;
+	}
+	public void upgradeTopSpeed(int x) {
+		topSpeed += x;
+	}
+	public void upgradeLevel(int x) {
+		level += x;
+	}
+	public int getLevel() {
+		return level;
+	}
+	public String toString() {
+		return "\n\tStyle-> " + style + " \n\tSTATS-> Attack " + attack + ", Acceleration " + acceleration + ", Top Speed " + topSpeed + "  \n\tLevel-> " + level;
+	}
+}
