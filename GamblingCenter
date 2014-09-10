@@ -1,0 +1,33 @@
+/**
+ * 
+ */
+package InitialClasses;
+
+public class GamblingCenter {
+	/**
+	 * @author Eric Terzer, September 9th, 2014
+	 * This class will control the betting and will interact with RaceTrack and Wallet.
+	 */
+		public static int bet;
+		public static int resultCash;
+		
+		public GamblingCenter() {
+		}
+		
+		//Methods
+		public static void getBet(int x) {
+			bet=x;
+		}
+		public static int payout() {
+			return resultCash;
+		}
+		public static void conductPayout() {
+			if (RaceTrack.getUserScore() > RaceTrack.getcompScore()) {
+				Wallet.money = Wallet.money + resultCash;
+		}
+			else {
+				Wallet.money = Wallet.money - resultCash;
+			}
+		}
+
+}
