@@ -1,0 +1,38 @@
+package InitialClasses;
+/**
+ * @author Jeff Furbish, Septemeber 2nd, 2014
+ *Racer class for rat race, non-abstract (cause why would you) extended
+ *to creat racer objects including player, enemy, and boss.
+ */
+public class Racer {
+	public String style;
+	public int attack;
+	public int topSpeed;
+	public int acceleration;
+
+	/** These are the only four stats I'm familiar with, there many be more
+	 * as time passes, for now, these should suffice, rework.
+	 * 
+	 */
+	public Racer(String style, int attack, int topSpeed, int acceleration) {
+		this.style = style;
+		this.attack= attack;
+		this.topSpeed = topSpeed;
+		this.acceleration = acceleration;
+	}
+	public String getStyle() {
+		return style;
+	}
+	public int getAttack() {
+		return attack;
+	}
+	public int getTopSpeed() {
+		return topSpeed;
+	}
+	public int getAcceleration() {
+		return acceleration;
+	}
+	public String toString() {
+		return style + " '" + attack + " '" + acceleration + " '" + topSpeed + "'.";
+	}
+}
