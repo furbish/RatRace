@@ -1,7 +1,8 @@
 /**
- * This will be the console operator class, whenever you want the console to speack to the user, make it a method that is called from this object
- * this will make for clarity when we want to display things later in the game, we'll just need to hook up all th graphics that deal with speaking to the player
- * in this class. I'm gonna write a method and leave the rest to you. Again these are temporary and will simply be commands to display graphics later on.
+ * This will be the console operator class, whenever you want the console to speack to the user, make it a method that is called 
+ * from this object this will make for clarity when we want to display things later in the game, we'll just need to hook up all 
+ * the graphics that deal with speaking to the player in this class. I'm gonna write a method and leave the rest to you. Again 
+ * these are temporary and will simply be commands to display graphics later on.
  */
 package InitialClasses;
 
