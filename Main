@@ -1,0 +1,26 @@
+package InitialClasses;
+//package RatRace;
+import java.util.Scanner;
+
+public class Main {
+	public static void main (String[] args) {
+		Scanner scan = new Scanner(System.in);
+		@SuppressWarnings("unused")
+		Wallet wallet = new Wallet(20);	
+		UpgradeCenter upgradeCenter = new UpgradeCenter();
+		PlayerRacer player1 = new PlayerRacer("ATT", 1, 1, 1);
+		CompRacer comp1 = new CompRacer("ATT", 1, 1, 1);
+		@SuppressWarnings("unused")
+		RaceTrack race = new RaceTrack(10);	
+	
+			}
+
+		}
+	}
+		scan.close();}}
+
+
+
+
+
+
