@@ -29,7 +29,7 @@ public class RaceGod {
 		laps=track.laps;
 		courseType=track.type;
 	}
-	public static void calculateAdv() {
+	public static void calculateAdv() {		// Sets mod for calc below
 		if (courseType.equals("tight")) {
 			agMod=2*PlayerRacer.level;
 		}
@@ -41,10 +41,11 @@ public class RaceGod {
 		} else courseType.equals("normal");
 	}	
 	public static int calculatePStrength() {
-		pStrength = ((PlayerRacer.acceleration+acMod)*(PlayerRacer.agility+agMod)*(PlayerRacer.topSpeed+toMod)*PlayerRacer.level);
+		pStrength = ((PlayerRacer.acceleration+acMod)*(PlayerRacer.agility+agMod)*(PlayerRacer.topSpeed+toMod)*PlayerRacer.level); 
+		// player strength incorporating mods, probs to be replaced
 			return pStrength;
 	}
-	public static void calculateDef() {
+	public static void calculateDef() {		// changes defense based on track type, more types to come
 		defense = PlayerRacer.defense*PlayerRacer.level;
 		if (courseType.equals("drag")) {
 			defense=PlayerRacer.defense;
