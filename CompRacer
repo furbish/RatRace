@@ -1,5 +1,7 @@
-
-package InitialClasses;
+/**
+ * 
+ */
+package logicClasses;
 
 //package InitialClasses;
 /**
@@ -10,16 +12,13 @@ package InitialClasses;
 public class CompRacer extends Racer {
 	public int level = 1;
 	/**
-	 * @param style
 	 * @param attack
 	 * @param topSpeed
 	 * @param acceleration
+	 * @param agility
 	 */
-	public CompRacer(String style, int attack, int topSpeed, int acceleration) {
-		super(style, attack, topSpeed, acceleration);
-	}
-	public void updateStyle(String sty) {
-		style=sty;
+	public CompRacer( int attack, int topSpeed, int acceleration, int agility) {
+		super(attack, topSpeed, acceleration, agility);
 	}
 	public void upgradeAttack(int x) {
 		attack += x;
@@ -37,6 +36,6 @@ public class CompRacer extends Racer {
 		return level;
 	}
 	public String toString() {
-		return "\n\tStyle-> " + style + " \n\tSTATS-> Attack " + attack + ", Acceleration " + acceleration + ", Top Speed " + topSpeed + "  \n\tLevel-> " + level;
+		return " \n\tSTATS-> Attack " + attack + ", Acceleration " + acceleration + ", Top Speed " + topSpeed + "  \n\tLevel-> " + level;
 	}
 }
