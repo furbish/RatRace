@@ -3,10 +3,16 @@ package logicClasses;
 
 public class Main {
 	public static void main (String[] args) {
-		RaceTrack eight = new FigureEight();
-		Control.trackPrep(eight);
+		RaceTrack figureEight = new RaceTrack("tight", 10);
+		Control.trackPrep(figureEight);
 		Control.enemyPrep();
 		Control.runRace();
 		Control.printResult();
 	}
 }
+
+
+
+
+
+
