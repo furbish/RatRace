@@ -13,7 +13,7 @@ import java.util.Random;
 public class Control {
 	public static int expGain;
 	private static int playerPower;
-	private static int[] enemies;
+	private static int[] enemies = new int[7];
 	private static int roundWins=0;
 	public static int place;
 	private static int temp;
@@ -24,7 +24,7 @@ public class Control {
 	public Control() {
 		// TODO Auto-generated constructor stub
 	}
-	public static void trackPrep(RaceTrack track) {
+	public static void trackPrep(RaceTrack track) {		// Runs RaceGod's methods, then sets player strength for the race
 		RaceGod.getTrackStandards(track);
 		RaceGod.calculateAdv();
 		RaceGod.calculateDef();
@@ -34,22 +34,23 @@ public class Control {
 	public static void enemyPrep() {
 		EnemyGod.generateRacers();
 		for (int i=0; i<EnemyGod.enemies.length; i++) {
-		enemies[i]=EnemyGod.enemies[i].acceleration*EnemyGod.enemies[i].topSpeed*EnemyGod.enemies[i].agility*PlayerRacer.level;
+		enemies[i]=EnemyGod.enemies[i].acceleration*EnemyGod.enemies[i].topSpeed*EnemyGod.enemies[i].agility*PlayerRacer.level*10; 
+		//rough comp power for eight comps, to be replaced 
 		}
 	}
 	public static void runRace() {
 		for (int i=0; i<RaceGod.laps; i++) {
 			Random rand = new Random(10);
-			temp=playerPower;
+			temp=playerPower;				// holds player power so random factor can be modified by random again
 			playerPower+=rand.nextInt(10);
 			for (int j=0; j<enemies.length; j++){
-				if (playerPower>enemies[j]) {
+				if (playerPower>enemies[j]) {	// fights each enemy, totals wins
 					roundWins++;
 				}
 			}
 		playerPower=temp;	
 		}
-		if (roundWins>6*RaceGod.laps) {
+		if (roundWins>6*RaceGod.laps) {	// really rough method for placing, to be replaced
 			place =1;
 		} else if (roundWins>5*RaceGod.laps){
 			place =2;
@@ -57,7 +58,7 @@ public class Control {
 			place =3;
 		} else place=0;
 	}
-	public static void printResult() {
+	public static void printResult() {	// just for testing
 		if (place==1) {
 			System.out.println("Victory");
 		}
@@ -71,5 +72,6 @@ public class Control {
 			System.out.println("DNP");
 		}
 		place=0;
+		RaceGod.resetMods(); // resets mods for next race
 	}
 }
