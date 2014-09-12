@@ -1,0 +1,34 @@
+/**
+ * 
+ */
+package logicClasses;
+
+import java.util.Random;
+
+/**
+ * @author Jeff
+ *
+ * This class will make and manage enemies, then get them ready for a race.
+ */
+public class EnemyGod {
+	static Racer[] enemies = new CompRacer[7];
+	private static int acceleration;
+	private static int topSpeed;
+	private static int agility;
+
+	/**
+	 * 
+	 */
+	public EnemyGod() {
+		// TODO Auto-generated constructor stub
+	}
+	public static void generateRacers() {
+		for (int i=0; i<8; i++) {
+			Random rand = new Random();
+			acceleration=PlayerRacer.level*rand.nextInt(8);
+			topSpeed=PlayerRacer.level*rand.nextInt(8);
+			agility=PlayerRacer.level*rand.nextInt(8);
+			enemies[i]= new CompRacer(1,acceleration,topSpeed, agility);
+		}
+	}
+}
