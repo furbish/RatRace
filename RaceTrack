@@ -1,53 +1,27 @@
 /**
  * 
  */
-package InitialClasses;
+package logicClasses;
 
 
 public class RaceTrack {
-	//package InitialClasses;
+	
 	/**
-	 * @author Eric Terzer, September 9th, 2014
-	 * This class actually runs the race interacting with
-	 * racer classes.
+	 * @author Jeff Furbish 9/11/2014
+	 * RaceTrack will be extended by the varied types of tracks, and called upon by RaceGod. 
 	 */
-		public static int laps;
-		public static double userLapScore;
-		public static double compLapScore;
-		public static int userScore;
-		public static int compScore;
+		public int laps;
+		public String type;
+
 		
-		public RaceTrack(int lap) {
-			RaceTrack.laps = lap;
+		public RaceTrack() {
+		
+		}
+		public int getLaps() {
+			return laps;
+		}
+		public String getCourseType() {
+			return type;
 		}
 
-//Methods
-		public static void runRace(Racer player, Racer computer) {
-			userLapScore = Math.random() * (player.attack+player.acceleration+player.topSpeed);
-			compLapScore = Math.random() * (computer.acceleration+computer.attack+computer.topSpeed);
-			if (userLapScore > compLapScore) {
-				userScore++;
-				ConsoleOperator.playerWins();
-			}
-			else {
-				compScore++;
-			}
-			
-		}
-		public static int getUserScore() {
-		return userScore;
-		}
-		public static int getcompScore() {
-			return compScore;
-		}
-		public static void resetUserScore() {
-			userScore=0;
-		}
-		public static void resetcompScore() {
-			compScore = 0;
-		/* Why not public static void resetScores() {
-			* userScore=0;
-			* compScore=0;
-			*/
-		}
 }
