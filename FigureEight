@@ -1,0 +1,21 @@
+/**
+ * 
+ */
+package logicClasses;
+
+/**
+ * @author Jeff
+ *
+ */
+public class FigureEight extends RaceTrack {
+	public static int laps=8;
+	public static String type="tight";
+
+	/**
+	 * 
+	 */
+	public FigureEight() {
+		// TODO Auto-generated constructor stub
+	}
+
+}
