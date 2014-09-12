@@ -1,0 +1,60 @@
+/**
+ * 
+ */
+package logicClasses;
+
+/**
+ * @author Jeff Furbish 9/11/2014
+ *
+ *RaceGod will dictate how races go, calling upon RaceTrack to do stuff
+ */
+public class RaceGod {
+	public static int laps;
+	private static String courseType;
+	private static int pStrength;
+	private static int acMod=0, agMod=0, toMod=0;
+	public static int defense, attack;
+	/**
+	 * 
+	 */
+	public RaceGod() {
+		// TODO Auto-generated constructor stub
+	}
+	public static void resetMods() {
+		acMod=0;
+		agMod=0;
+		toMod=0;
+	}
+	public static void getTrackStandards(RaceTrack track) {
+		laps=track.laps;
+		courseType=track.type;
+	}
+	public static void calculateAdv() {
+		if (courseType.equals("tight")) {
+			agMod=2*PlayerRacer.level;
+		}
+		if (courseType.equals("rough")) {
+			agMod=2*PlayerRacer.level;
+		}
+		if (courseType.equals("drag")) {
+			acMod=2*PlayerRacer.level;
+		} else courseType.equals("normal");
+	}	
+	public static int calculatePStrength() {
+		pStrength = ((PlayerRacer.acceleration+acMod)*(PlayerRacer.agility+agMod)*(PlayerRacer.topSpeed+toMod)*PlayerRacer.level);
+			return pStrength;
+	}
+	public static void calculateDef() {
+		defense = PlayerRacer.defense*PlayerRacer.level;
+		if (courseType.equals("drag")) {
+			defense=PlayerRacer.defense;
+		}
+		if (courseType.equals("rough")) {
+			defense=defense*2;
+		}
+	}
+	public static void calculateAttack() {
+		attack = PlayerRacer.attack*PlayerRacer.level;
+	}
+
+}
