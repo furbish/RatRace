@@ -1,0 +1,75 @@
+/**
+ * 
+ */
+package logicClasses;
+
+import java.util.Random;
+
+/**
+ * @author Jeff Furbish, 9/11/2014
+ *
+ * I don't even know yet
+ */
+public class Control {
+	public static int expGain;
+	private static int playerPower;
+	private static int[] enemies;
+	private static int roundWins=0;
+	public static int place;
+	private static int temp;
+	
+	/**
+	 * 
+	 */
+	public Control() {
+		// TODO Auto-generated constructor stub
+	}
+	public static void trackPrep(RaceTrack track) {
+		RaceGod.getTrackStandards(track);
+		RaceGod.calculateAdv();
+		RaceGod.calculateDef();
+		RaceGod.calculateAttack();
+		playerPower = RaceGod.calculatePStrength();
+	}
+	public static void enemyPrep() {
+		EnemyGod.generateRacers();
+		for (int i=0; i<EnemyGod.enemies.length; i++) {
+		enemies[i]=EnemyGod.enemies[i].acceleration*EnemyGod.enemies[i].topSpeed*EnemyGod.enemies[i].agility*PlayerRacer.level;
+		}
+	}
+	public static void runRace() {
+		for (int i=0; i<RaceGod.laps; i++) {
+			Random rand = new Random(10);
+			temp=playerPower;
+			playerPower+=rand.nextInt(10);
+			for (int j=0; j<enemies.length; j++){
+				if (playerPower>enemies[j]) {
+					roundWins++;
+				}
+			}
+		playerPower=temp;	
+		}
+		if (roundWins>6*RaceGod.laps) {
+			place =1;
+		} else if (roundWins>5*RaceGod.laps){
+			place =2;
+		} else if (roundWins>4*RaceGod.laps){
+			place =3;
+		} else place=0;
+	}
+	public static void printResult() {
+		if (place==1) {
+			System.out.println("Victory");
+		}
+		if (place==2) {
+			System.out.println("Second");
+		}
+		if (place==3) {
+			System.out.println("Third");
+		}
+		if (place==0) {
+			System.out.println("DNP");
+		}
+		place=0;
+	}
+}
